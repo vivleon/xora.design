@@ -49,8 +49,7 @@
         }
         body.light-mode .message-bubble.me { color: white; }
         body.light-mode .ai-card { background: rgba(0, 229, 255, 0.05); border-color: rgba(0, 229, 255, 0.2); }
-        body.light-mode .splash-screen { background: #0A0A0F; } 
-        body.light-mode .splash-text { color: #FFFFFF; }
+        /* Task 2 Fix: Removed the dark background override for light mode splash screen */
 
 
         /* ----- GLOBAL LAYOUT ----- */
@@ -102,14 +101,13 @@
         .icon-compose { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>'); }
         .icon-back { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>'); }
         .icon-lock-tiny { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>'); }
-        /* NEW: Sleek shield for protected badge */
         .icon-shield-tiny { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>'); }
         .icon-sparkle { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.5 9.5L2 12L9.5 14.5L12 22L14.5 14.5L22 12L14.5 9.5L12 2Z"/></svg>'); }
         .icon-send { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>'); }
         .icon-plus { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>'); }
         .icon-check { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'); }
         .icon-chevron { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>'); }
-        .icon-more { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>'); }
+        .icon-more { mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>'); }
 
 
         /* ----- SHARED COMPONENTS ----- */
@@ -117,7 +115,6 @@
         .header-title { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .header-title-plain { font-size: 22px; font-weight: 700; color: var(--text-primary); }
         
-        /* NEW: Sleek Protected Badge for Header */
         .protected-badge-sleek { display: flex; align-items: center; background: rgba(40, 199, 111, 0.15); border: 1px solid rgba(40, 199, 111, 0.3); padding: 6px 12px; border-radius: 20px; font-size: 12px; color: var(--accent-green); font-weight: 600; backdrop-filter: blur(5px); }
         .protected-badge-sleek .icon-sml { width: 14px; height: 14px; margin-right: 6px; }
 
@@ -131,7 +128,6 @@
         .btn-primary { background: var(--accent-gradient); color: white; border: none; padding: 14px; border-radius: 16px; font-weight: 700; font-size: 16px; width: 100%; }
 
         /* --- Specific: Home --- */
-        /* REMOVED: .risk-banner styles as it's replaced by the header badge */
 
         /* --- Specific: Chat Room --- */
         .chat-header { padding: 10px 20px; display: flex; align-items: center; background-color: var(--glass-bg); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); z-index: 10; position: absolute; top: 44px; width: 100%; box-sizing: border-box; transition: background-color 0.3s, border-color 0.3s;}
@@ -149,17 +145,30 @@
         .safety-ring-progress { fill: none; stroke: url(#gradient-safety); stroke-width: 10; stroke-linecap: round; stroke-dasharray: 440; stroke-dashoffset: 40; filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.3)); }
         .setting-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--bg-secondary); border-radius: 16px; margin-bottom: 10px; border: 1px solid var(--glass-border); transition: background-color 0.3s, border-color 0.3s;}
 
-        /* --- Specific: Splash (Corrected Icon Style) --- */
+        /* --- Specific: Splash (Task 1: New Icon Style) --- */
         .splash-screen { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; background: var(--bg-main); transition: background-color 0.3s; position: relative; overflow: hidden; }
         
-        .splash-logo-container {
+        /* TASK 1 APPLIED HERE */
+        .app-icon-new {
             width: 120px; height: 120px;
-            background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+            background: linear-gradient(to bottom right, #1a1a2e, #0f0f1a);
             border-radius: 28px;
-            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.15);
             display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 0 40px rgba(0, 229, 255, 0.4), inset 0 0 20px rgba(0, 229, 255, 0.1);
-            position: relative;
+            position: relative; overflow: hidden;
+            margin-bottom: 25px; /* Added back to maintain spacing with text */
+        }
+        .app-icon-new::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(0,229,255,0.1) 0%, rgba(0,0,0,0) 60%);
+        }
+        .nexus-x {
+            width: 70px; height: 70px;
+            /* 추상적인 연결선 X 형태 */
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q50,50 80,20" stroke="black" stroke-width="8" fill="none" stroke-linecap="round" /><path d="M20,80 Q50,50 80,80" stroke="black" stroke-width="8" fill="none" stroke-linecap="round" /><path d="M25,25 L75,75" stroke="black" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/><path d="M75,25 L25,75" stroke="black" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8"/></svg>');
+            background: var(--accent-gradient);
+            mask-size: contain; mask-position: center; mask-repeat: no-repeat;
+            z-index: 2;
         }
 
         .splash-text { font-size: 36px; font-weight: 800; letter-spacing: 1px; color: var(--text-primary); }
@@ -184,24 +193,8 @@
         <div class="mockup-container">
             <div class="notch"></div>
             <div class="splash-screen">
-                <div class="splash-logo-container">
-                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="nexus-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#00E5FF" />
-                                <stop offset="100%" stop-color="#8A2BE2" />
-                            </linearGradient>
-                            <filter id="nexus-glow" x="-50%" y="-50%" width="200%" height="200%">
-                                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
-                                <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-                                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-                            </filter>
-                        </defs>
-                        <g stroke="url(#nexus-gradient)" stroke-width="7" stroke-linecap="round" filter="url(#nexus-glow)">
-                            <ellipse cx="50" cy="50" rx="22" ry="42" transform="rotate(45 50 50)"/>
-                            <ellipse cx="50" cy="50" rx="22" ry="42" transform="rotate(-45 50 50)"/>
-                        </g>
-                    </svg>
+                <div class="app-icon-new">
+                    <div class="nexus-x"></div>
                 </div>
                 <div class="splash-text">XORA</div>
             </div>
@@ -222,6 +215,7 @@
                     <div class="icon-sml icon-compose" style="background: var(--accent-cyan);"></div>
                 </div>
                 
+
                 <div class="search-bar">
                     <div class="icon-sml icon-secondary icon-search" style="margin-right: 12px;"></div> Search
                 </div>
