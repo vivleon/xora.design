@@ -49,6 +49,9 @@
         }
         body.light-mode .message-bubble.me { color: white; }
         body.light-mode .ai-card { background: rgba(0, 229, 255, 0.05); border-color: rgba(0, 229, 255, 0.2); }
+        /* 라이트 모드에서도 스플래시 아이콘은 어둡게 유지 */
+        body.light-mode .splash-screen { background: #0A0A0F; } 
+        body.light-mode .splash-text { color: #FFFFFF; }
 
 
         /* ----- GLOBAL LAYOUT ----- */
@@ -141,8 +144,22 @@
         .setting-item { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--bg-secondary); border-radius: 16px; margin-bottom: 10px; border: 1px solid var(--glass-border); transition: background-color 0.3s, border-color 0.3s;}
 
         /* --- Specific: Splash --- */
-        .splash-screen { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; background: var(--bg-main); transition: background-color 0.3s;}
-        .splash-logo { width: 100px; height: 100px; background: var(--accent-gradient); border-radius: 25px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2); }
+        /* UPDATED: Splash screen style to match the new icon container */
+        .splash-screen { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; background: var(--bg-main); transition: background-color 0.3s; position: relative; overflow: hidden; }
+        
+        /* UPDATED: New App Icon Container Style based on image_3.png */
+        .splash-logo-container {
+            width: 120px; height: 120px;
+            background: linear-gradient(145deg, #1a1a2e, #0f0f1a); /* Dark gradient background */
+            border-radius: 28px; /* Smoother corners */
+            margin-bottom: 25px;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.4), inset 0 0 20px rgba(0, 229, 255, 0.1); /* Strong outer cyan glow */
+            position: relative;
+        }
+
+        /* UPDATED: Splash text style */
+        .splash-text { font-size: 36px; font-weight: 800; letter-spacing: 1px; color: var(--text-primary); }
         
         /* --- Specific: Share Card --- */
         .share-card-view { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; background: var(--bg-main); }
@@ -164,13 +181,24 @@
         <div class="mockup-container">
             <div class="notch"></div>
             <div class="splash-screen">
-                <div class="splash-logo">
-                    <svg width="60" height="60" viewBox="0 0 100 100">
-                        <path d="M20,20 Q50,50 80,20" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" />
-                        <path d="M20,80 Q50,50 80,80" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" />
+                <div class="splash-logo-container">
+                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="nexus-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00E5FF" /> <stop offset="100%" stop-color="#8A2BE2" /> </linearGradient>
+                            <filter id="nexus-glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                                <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+                            </filter>
+                        </defs>
+                        <g stroke="url(#nexus-gradient)" stroke-width="7" stroke-linecap="round" filter="url(#nexus-glow)">
+                             <ellipse cx="50" cy="50" rx="22" ry="42" transform="rotate(45 50 50)"/>
+                            <ellipse cx="50" cy="50" rx="22" ry="42" transform="rotate(-45 50 50)"/>
+                        </g>
                     </svg>
                 </div>
-                <div class="header-title" style="font-size: 36px;">XORA</div>
+                <div class="splash-text">XORA</div>
             </div>
         </div>
 
